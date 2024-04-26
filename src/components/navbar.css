@@ -1,0 +1,11 @@
+.nav{
+   display: flex;
+   align-items: center;
+   justify-content: start;
+   align-content: center;
+   align-self: center;
+   height: 70px;
+   background: white;
+   padding-left: 82px;
+   box-shadow: 0px 2.9825618267059326px 7.456404209136963px rgba(0, 0, 0, 0.10)
+}
