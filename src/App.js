@@ -7,14 +7,20 @@ import cardDetails from "./data";
 function App() {
   let cardsList = cardDetails.map(function(card){
     return <Card
-      title={card.title}
-      rating={card.stats.rating}
-      status={card.id}
-      ratingCount={card.stats.reviewCount}
-      country={card.location}
-      img={card.coverImg}
-      rate={card.price}
-      openSpots = {card.openSpots}
+      key = {card.id}
+      //! using spread operators syntax
+      // {...card}
+      //! using simgle object insted of individual parameters
+      cardItem = {card}
+      //! using individual parameters
+      // title={card.title}
+      // rating={card.stats.rating}
+      // status={card.id}
+      // ratingCount={card.stats.reviewCount}
+      // location={card.location}
+      // img={card.coverImg}
+      // rate={card.price}
+      // openSpots = {card.openSpots}
     />
   });
   return (

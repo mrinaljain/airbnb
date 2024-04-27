@@ -4,26 +4,34 @@ import React from "react";
 import "./card.css";
 
 export default function Card(props) {
-   console.log(props);
    //destructuring object
-   const { img, status, rating } = props;
+   // const { img, status, rating } = props;
+   console.log(props.cardItem);
+   let card = props.cardItem;
    const textStyle = {
       backgroundImage: 'url("images/person.png")',
    };
+   let badgeText;
+   if(card.openSpots === 0){
+      badgeText = "SOLD OUT";
+   } else if (card.location === "Online"){
+      badgeText = "ONLINE";
+   }
    return (
       <div className="card">
          <div className="card_image" style={textStyle}>
-            {props.openSpots === 0 && <span className="card_tag">SOLD OUT</span>}
+            {badgeText && <span className="card_tag">{badgeText}</span>}
+            {/* <span className="card_tag" style={{ display: badgeText ? 'block' : 'none' }}>{badgeText}</span> */}
          </div>
          <div className="card_content">
             <div className="ratting_row"> 
                <img src="images/star.png" /> 
-               <span>{props.rating}</span>
-               <span className="ratting_count">({props.ratingCount})</span> .
-               <span className="country">{props.country}</span>
+               <span>{card.stats.rating}</span>
+               <span className="ratting_count">({card.stats.reviewCount})</span> .
+               <span className="country">{card.location}</span>
             </div>
-            <h2>{props.title}</h2>
-            <span><strong>From ${props.rate}</strong> / person</span>
+            <h2>{card.title}</h2>
+            <span><strong>From ${card.price}</strong> / person</span>
          </div>
       </div>
    )
